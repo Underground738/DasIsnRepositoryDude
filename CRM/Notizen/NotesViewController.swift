@@ -13,7 +13,6 @@ class NotesViewController: UIViewController {
     
     @IBOutlet weak var redoButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
-    
     @IBOutlet weak var drawingView: CanvasView!
     
     override func viewDidLoad() {
