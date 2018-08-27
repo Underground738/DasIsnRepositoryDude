@@ -13,7 +13,7 @@ var tappedTaskCell: Int = 0
 
 class ChecklistViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
-    let transtition = SwiftyExpandingTransition()
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     var selectedTask: Tasks?
     var cellSpacingHeight: CGFloat = 5
     var selectedTaskID: Int = 0
@@ -82,39 +82,18 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
-    // Führt Custom Segue Animation aus und übergibt dabei die Daten, wie z.b.
-    // Beschreibung und Titel der Ausgewählten Task an TaskDetailsViewController
+    // Segue übergibt Daten, wie z.b. Beschreibung und Titel
+    // der Ausgewählten Task an TaskDetailsViewController
     // Um dort Text zu setzen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TaskDetailsVC" {
             let vc = segue.destination as! TaskDetailsViewController
             // Übergibt den Ausgewählten Task an TaskDetailsViewController
             vc.task = self.selectedTask
-            // überschreibt Animation des segue
-            // self.navigationController?.delegate = self
         }
-        // ruft custom Segue auf, BUG: Custom Segue wird dann für jede Segue benutzt
-        // also auch wenn man zurück zur AufgabenGruppen übersicht geht!
     }
     
-    // Um Custom Animation wieder einzubinden self.navigationController?.delegate = self wieder entkommentieren!
-    // Custom Animation für Tasks
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        if operation == UINavigationControllerOperation.push {
-            transtition.operation = UINavigationControllerOperation.push
-            transtition.duration = 0.40
-            return transtition
-        }
-        
-        if operation == UINavigationControllerOperation.pop {
-            transtition.operation = UINavigationControllerOperation.pop
-            transtition.duration = 0.20
-            return transtition
-        }
-        
-        return nil
-    }
+   
     
     @objc func checkboxValueChanged(_ sender: M13Checkbox) {
         if let indexPath = self.Checklists.indexPathForCheckbox(sender) {
@@ -133,7 +112,6 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
 
 extension ChecklistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCellFrame = tableView.convert(tableView.cellForRow(at: indexPath as IndexPath)!.frame, to: tableView.superview)
         self.selectedTask = TaskManager.sharedInstance.tasks.filter({$0.groupsid == selectedGroupID})[indexPath.section]
         self.performSegue(withIdentifier: "TaskDetailsVC", sender: nil)
     }

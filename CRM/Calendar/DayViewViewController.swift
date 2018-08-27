@@ -12,9 +12,11 @@ import JZCalendarWeekView
 class DayViewViewController: UIViewController {
 
     @IBOutlet weak var calendarWeekView: JZBaseWeekView!
+    var events: [JZBaseEvent]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendarWeekView.setupCalendar(numOfDays: 1, setDate: Date(), allEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events), scrollType: .pageScroll, firstDayOfWeek: .monday)
     }
 
     override func didReceiveMemoryWarning() {
