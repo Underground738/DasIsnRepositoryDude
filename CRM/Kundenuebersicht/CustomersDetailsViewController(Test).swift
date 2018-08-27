@@ -18,7 +18,7 @@ class CustomersDetailsViewController_Test_: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       DetailOptions.dataSource = self
+        
         
         // Do any additional setup after loading the view.
     }
@@ -42,7 +42,7 @@ class CustomersDetailsViewController_Test_: UIViewController{
 
 }
 
-extension CustomersDetailsViewController_Test_: UITableViewDataSource {
+extension CustomersDetailsViewController_Test_: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return detailOptions.count
     }
