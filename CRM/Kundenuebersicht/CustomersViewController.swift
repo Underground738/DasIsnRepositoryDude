@@ -9,7 +9,6 @@
 import UIKit
 
 class CustomersViewController: UIViewController {
-    
 
     var customersDictionary = [String: [String]]()
     var customerSectionTitles = [String]()

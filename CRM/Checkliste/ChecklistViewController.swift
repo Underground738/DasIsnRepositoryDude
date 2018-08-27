@@ -12,8 +12,8 @@ import M13Checkbox
 var tappedTaskCell: Int = 0
 
 class ChecklistViewController: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
-
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
+    @IBOutlet weak var deleteButton: UIButton!
     var selectedTask: Tasks?
     var cellSpacingHeight: CGFloat = 5
     var selectedTaskID: Int = 0
@@ -28,6 +28,7 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
         Checklists.tableFooterView?.backgroundColor = UIColor.clear
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         setupLongPressGesture()
+        deleteButton.addTarget(self, action: #selector(deleteFullfilledTasks), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +55,7 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
             let touchPoint = gestureRecognizer.location(in: self.Checklists)
             if let indexPath = Checklists.indexPathForRow(at: touchPoint) {
 
-                let dialogMessage = UIAlertController(title: "Bestätigen", message: "Sind Sie sicher, dass sie die Gruppe löschen möchten?", preferredStyle: .alert)
+                let dialogMessage = UIAlertController(title: "Bestätigen", message: "Sind Sie sicher, dass sie die Aufgabe löschen möchten?", preferredStyle: .alert)
                 
                 // BUG: Löscht in Task Array die Zeile an der Stelle, die SectionAtLongPressure angibt.
                 // Unabhängig von der jeweiligen Gruppe!!!
@@ -117,6 +118,30 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
+    @objc func deleteFullfilledTasks(sender: UIButton) {
+        let dialogMessage = UIAlertController(title: "Bestätigen", message: "Sind Sie sicher, dass sie alle erfüllten Aufgaben löschen möchten?", preferredStyle: .alert)
+        
+        // Create Ok button action
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            self.deleteCheckedTasks(selectedGroupID: selectedGroupID)
+            TaskManager.sharedInstance.tasks.removeAll()
+            self.setupTasks()
+            self.Checklists.reloadData()
+            print("Ok button tapped")
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            print("Cancel button tapped")
+        }
+        
+        //Add OK and Cancel button to dialog message
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        
+        // Present dialog message to user
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
 }
 
 extension ChecklistViewController: UITableViewDelegate {
