@@ -342,4 +342,28 @@ extension UIViewController {
         }
     }
     
+    func deleteCheckedTasks(selectedGroupID: Int) {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        let db = try! Connection("\(path)/db.sqlite3")
+        
+        let tasks = Table("tasks")
+        let checkedstate = Expression<Bool>("checkedstate")
+        let groupsid = Expression<Int64>("groupsid")
+        
+        let deleteTask = tasks.filter(tasks[groupsid] == Int64(selectedGroupID) && tasks[checkedstate])
+        
+        do {
+            if try db.run(deleteTask.delete()) > 0 {
+                print("Alle erfüllten Aufgaben wurden gelöscht!")
+            } else {
+                print("Keine erfüllten Aufgaben!")
+            }
+        } catch {
+            print("Löschen fehlgeschlagen: \(error)")
+        }
+    }
+    
 }
