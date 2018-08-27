@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B82CF9A213447190004ECCD /* CustomersDetailsViewController(Test).swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82CF99213447190004ECCD /* CustomersDetailsViewController(Test).swift */; };
 		5F0F6647C30A8DBAFCEF650B /* Pods_CRM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DD398458C993C6337FEBB2 /* Pods_CRM.framework */; };
 		A1984DC720F3A20E0044D6BC /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1984DC620F3A20E0044D6BC /* Customers.swift */; };
 		A199D9D520D7F6B300B2FFD8 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A199D9D420D7F6B300B2FFD8 /* Groups.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		17DD398458C993C6337FEBB2 /* Pods_CRM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B82CF99213447190004ECCD /* CustomersDetailsViewController(Test).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomersDetailsViewController(Test).swift"; sourceTree = "<group>"; };
 		8E52F167B4C7531C6F53C3C4 /* Pods-CRM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRM.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRM/Pods-CRM.release.xcconfig"; sourceTree = "<group>"; };
 		A1984DC620F3A20E0044D6BC /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		A199D9D420D7F6B300B2FFD8 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				A1B5DB8F20EF713D00611D0A /* CustomersViewController.swift */,
 				A1984DC620F3A20E0044D6BC /* Customers.swift */,
+				2B82CF99213447190004ECCD /* CustomersDetailsViewController(Test).swift */,
 			);
 			path = Kundenuebersicht;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				A1B6B578213401FB001E5FF0 /* customCalendarDayViewClass.swift in Sources */,
 				A19FC2C720D3B339003775B2 /* TaskDetailsViewController.swift in Sources */,
 				A1AE9378210650BE007BABE2 /* CanvasView.swift in Sources */,
+				2B82CF9A213447190004ECCD /* CustomersDetailsViewController(Test).swift in Sources */,
 				A19A3CEB20CD4E99005ABE9F /* ChecklistViewController.swift in Sources */,
 				A1AF12BF20D011A5001643F0 /* DatabaseViewController.swift in Sources */,
 				A1B5D0A9209B370C00188D6C /* CalendarViewController.swift in Sources */,
@@ -624,7 +628,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRM/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -642,7 +649,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRM/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -659,7 +669,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRMTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -676,7 +690,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRMTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -692,7 +710,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -708,7 +730,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52V76L6JD6;
 				INFOPLIST_FILE = CRMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CRMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
