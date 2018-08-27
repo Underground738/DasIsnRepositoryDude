@@ -55,15 +55,25 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
             if let indexPath = Checklists.indexPathForRow(at: touchPoint) {
 
                 let dialogMessage = UIAlertController(title: "Bestätigen", message: "Sind Sie sicher, dass sie die Gruppe löschen möchten?", preferredStyle: .alert)
-
+                
+                // BUG: Löscht in Task Array die Zeile an der Stelle, die SectionAtLongPressure angibt.
+                // Unabhängig von der jeweiligen Gruppe!!!
+                // Gruppen unterscheidung einbringen
                 // Create OK button with action handler
+                // Derzeit Hackaround mit Array leeren und aus Datenbank, wo löschen richtig erfolgt ist neu befüllen.
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                     let sectionAtLongPressure = indexPath.section
-                    let task = TaskManager.sharedInstance.tasks[indexPath.section]
+                    let task = TaskManager.sharedInstance.tasks.filter({$0.groupsid == selectedGroupID})[indexPath.section]
                     self.selectedTaskID = task.id
-                    TaskManager.sharedInstance.tasks.remove(at: sectionAtLongPressure)
-                    self.Checklists.reloadData()
+                    // nächste Zeile sollte eigentlich die Gedrückte Zeile aus Array löschen
+                    // ignoriert jedoch leider die Gruppe und löscht somit kreuz und quer in den Aufgaben
+//                    TaskManager.sharedInstance.tasks.remove(at: sectionAtLongPressure)
+                    // Dirty Hackaround: Löscht alle einträge im Array tasks und lädt den array anschließend neu aus der Datenbank, da
+                    // das löschen in der Datenbank richtig von statten geht, ich jedoch das element im array selbst nicht an der richtigen Stelle löschen kann
+                    TaskManager.sharedInstance.tasks.removeAll()
                     self.deleteTaskAtIndex(taskIndex: self.selectedTaskID)
+                    self.setupTasks()
+                    self.Checklists.reloadData()
                     print("Ok button tapped")
                 })
 
@@ -93,11 +103,10 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
-   
-    
+   // Checkbox State Switch
     @objc func checkboxValueChanged(_ sender: M13Checkbox) {
         if let indexPath = self.Checklists.indexPathForCheckbox(sender) {
-            let tappedCheckboxID = TaskManager.sharedInstance.tasks[indexPath.section].id
+            let tappedCheckboxID = TaskManager.sharedInstance.tasks.filter({$0.groupsid == selectedGroupID })[indexPath.section].id
             print("TappedCheckboxID is: \(tappedCheckboxID)")
             updateTaskCheckedState(taskID: tappedCheckboxID)
             setupTasks()

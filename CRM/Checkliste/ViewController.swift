@@ -52,6 +52,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationContacts.addTarget(self, action: #selector(buttonTouched(_:)), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        startTableView.reloadData()
+    }
+    
     // Wird aufgerufen, wenn observer eine änderung registriert. Lädt bei eingabe einer neuen Gruppe die Tabelle im hintergrund neu
     // und fügt die neue Gruppe hinzu
     @objc func loadList(){
