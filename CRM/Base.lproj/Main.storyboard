@@ -278,7 +278,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="sXx-1D-ihC">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gF1-eq-oVt">
-                                    <rect key="frame" x="-23" y="-15" width="227" height="30"/>
+                                    <rect key="frame" x="740.5" y="7" width="227" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                 </button>
