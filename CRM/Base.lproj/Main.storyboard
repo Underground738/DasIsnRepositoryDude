@@ -497,7 +497,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="6bO-1s-9TR" kind="show" id="5uU-xG-Qqq"/>
+                                            <segue destination="Xgk-Tz-TC5" kind="show" id="mM2-bm-8GX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -566,7 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkN-hl-2X1">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="1436"/>
+                                <rect key="frame" x="0.0" y="20" width="1024" height="1480"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9L-xd-gZo">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1907.5"/>
@@ -940,7 +940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJd-fq-ofb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="-2560"/>
+            <point key="canvasLocation" x="2532" y="-3590"/>
         </scene>
         <!--Add Group View Controller-->
         <scene sceneID="VgE-hn-ujQ">
@@ -1452,6 +1452,45 @@
             </objects>
             <point key="canvasLocation" x="4346.484375" y="2707.9062957540264"/>
         </scene>
+        <!--Kundendatenübersicht(Test)-->
+        <scene sceneID="xKm-m5-jFK">
+            <objects>
+                <viewController title="Kundendatenübersicht(Test)" id="Xgk-Tz-TC5" customClass="CustomersDetailsViewController_Test_" customModule="CRM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bOa-7B-rGn">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FTp-dI-m9u">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="730"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customcell" id="R2p-9i-VMT">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R2p-9i-VMT" id="jDb-H4-y56">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xgk-Tz-TC5" id="cyI-lh-Bad"/>
+                                    <outlet property="delegate" destination="Xgk-Tz-TC5" id="ulJ-Yo-qPd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9Ch-l0-U3m"/>
+                    </view>
+                    <connections>
+                        <outlet property="DetailOptions" destination="FTp-dI-m9u" id="7lk-pD-G2Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rko-wd-V4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2531.8359375" y="-2589.311859443631"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar-4x" width="32" height="32"/>
@@ -1466,6 +1505,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="tB6-fG-xpF"/>
         <segue reference="R1o-VV-Dd9"/>
-        <segue reference="mQy-dN-Mhh"/>
+        <segue reference="XZb-mo-dCB"/>
     </inferredMetricsTieBreakers>
 </document>
