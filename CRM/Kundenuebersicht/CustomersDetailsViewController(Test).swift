@@ -18,7 +18,7 @@ class CustomersDetailsViewController_Test_: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        DetailOptions.tableFooterView = UIView(frame: .zero)
         
         // Do any additional setup after loading the view.
     }

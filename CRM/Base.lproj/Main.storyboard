@@ -953,14 +953,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHX-7b-l85">
-                                <rect key="frame" x="48" y="60" width="75" height="36"/>
+                                <rect key="frame" x="150" y="60" width="75" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Erstellen">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gruppenname " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gci-9Q-GXk" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="15" y="15" width="141" height="30"/>
+                                <rect key="frame" x="15" y="15" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="YBt-Hw-OCN"/>
                                 </constraints>
