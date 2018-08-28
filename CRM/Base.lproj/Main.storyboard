@@ -277,14 +277,12 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" id="sXx-1D-ihC">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gF1-eq-oVt">
-                                    <rect key="frame" x="-23" y="-15" width="227" height="30"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="gF1-eq-oVt">
+                                    <rect key="frame" x="740.5" y="7" width="44" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
+                                    <state key="normal" image="trash-4x"/>
                                 </button>
                             </barButtonItem>
-                            <barButtonItem style="plain" systemItem="edit" id="9s3-p7-7gd"/>
-                            <barButtonItem systemItem="trash" id="EIm-3e-y2g"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -1463,6 +1461,7 @@
         <image name="people-4x" width="32" height="32"/>
         <image name="plus-3x" width="24" height="24"/>
         <image name="sort-descending-4x" width="32" height="32"/>
+        <image name="trash-4x" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tB6-fG-xpF"/>
