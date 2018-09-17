@@ -90,7 +90,7 @@ extension UIViewController {
         let deleteGroup = groups.filter(Int64(GroupIndex) == groups[id])
         let deleteTasks = tasks.filter(groups[id] == tasks[groupsid]) // Sucht alle tasks die zu der Gruppe gehört haben
         do {
-            if try db.run(deleteGroup.delete()) > 0{
+            if try db.run(deleteGroup.delete()) > 0 {
                 try db.run(deleteTasks.delete()) > 0 // löscht dazugehörige Aufgaben
                 print("Gruppe und alle \(deleteTasks.delete()) zugehörigen Aufgaben wurden gelöscht!")
             } else {

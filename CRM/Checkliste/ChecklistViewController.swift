@@ -29,6 +29,7 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         setupLongPressGesture()
         deleteButton.addTarget(self, action: #selector(deleteFullfilledTasks), for: .touchUpInside)
+        self.Checklists.rowHeight = 52.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +45,7 @@ class ChecklistViewController: UIViewController, UINavigationControllerDelegate,
     // Long Pressure Gesture
     func setupLongPressGesture() {
         let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-        longPressGesture.minimumPressDuration = 2.0 // 1 second press
+        longPressGesture.minimumPressDuration = 0.5 // 1 second press
         longPressGesture.delegate = self
         self.Checklists.addGestureRecognizer(longPressGesture)
     }
